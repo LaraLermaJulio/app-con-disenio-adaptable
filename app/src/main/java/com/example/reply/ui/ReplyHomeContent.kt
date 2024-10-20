@@ -48,7 +48,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import com.example.reply.R
 import com.example.reply.data.Email
+import com.example.reply.data.MailboxType
 import com.example.reply.data.local.LocalAccountsDataProvider
+import com.example.reply.ui.utils.ReplyContentType
+import com.example.reply.ui.utils.ReplyNavigationType
 
 @Composable
 fun ReplyListOnlyContent(
@@ -116,10 +119,8 @@ fun ReplyListAndDetailContent(
         val activity = LocalContext.current as Activity
         ReplyDetailsScreen(
             replyUiState = replyUiState,
-            modifier = Modifier
-                .padding(top = dimensionResource(R.dimen.email_list_item_vertical_spacing))
-                .weight(1f),
-            onBackPressed = {}
+            modifier = Modifier.weight(1f),
+            onBackPressed = { activity.finish() }
         )
     }
 }
